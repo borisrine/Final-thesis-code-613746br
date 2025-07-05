@@ -36,7 +36,7 @@ python3 piFinderF.py           # For F-statistic calibration (e.g., F ≈ 15)
 python3 piFinderCompliance.py  # For compliance score calibration (e.g., μ ≈ 0.5)
 ```
 
-> ⚠️ **Note:** These values are already hard-coded into `runner.py` and `runner.R`. Running this step is *not required* unless you want to replicate the π-finding procedure from scratch.
+>  **Note:** These values are already hard-coded into `runner.py` and `runner.R`. Running this step is *not required* unless you want to replicate the π-finding procedure from scratch or if you want to run the simulation with different sample size, covariate size or correlation structure.
 
 ---
 
