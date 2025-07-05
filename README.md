@@ -81,7 +81,7 @@ grf_R_results_step_weak_pi_0.3539_n1000.csv
 dmliv_results_linear_strong_pi_2.0490_n10000.csv
 ```
 
-- These contain both replication-level results and a prepended row with summary statistics (mean, median bias).
+- These contain both replication-level results and a prepended row with summary statistics. However, the code only delivers mean bias and MSE, not median bias or RMSE. The latter two should be computed by hand, e.g. in python or excel. 
 
 ---
 
