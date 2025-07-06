@@ -51,7 +51,7 @@ def first_stage_F(pi, N, rho_uv, u_size, n_size, seed=42):
     mdl = OLS(y, exog).fit()
     return float(mdl.f_test("Z = 0").fvalue)
 
-def avg_F(pi, N, rho_uv, u_size, n_size, seed=None, nreps=50):
+def avg_F(pi, N, rho_uv, u_size, n_size, seed=None, nreps=500):
     """
     Monte Carlo average of first-stage F-statistics over nreps independent replications.
     Used to reduce noise in F-stat estimates.
@@ -63,7 +63,7 @@ def avg_F(pi, N, rho_uv, u_size, n_size, seed=None, nreps=50):
 
 def find_pi_for_F(target_F, N, rho_uv, u_size, n_size,
                   pi_lower=0.01, pi_upper=10.0,
-                  tol=0.001, max_iter=50, nreps=50):
+                  tol=0.001, max_iter=500, nreps=500):
     """
     Find value of pi so that the simulated average first-stage F-statistic equals target_F.
     Uses bisection search as in thesis Algorithm 2, step 3.
