@@ -22,7 +22,9 @@ The simulation framework implements a controlled Monte Carlo environment to comp
 ├── R code/
 │   ├── dgp_utils.R                # Identical to `dgp_utils.py`, ported to R
 │   └── runner.R                   # GRF grid runner — includes simulation logic
-│
+├── Replication code/
+│   ├── panel_A.R                  # Code for empirical ATE estimation (SIPP data)
+│   └── panel_B.R                  # Code for simulation-based replication of Ahrens et al. (2025)
 ```
 
 ## How to Use
@@ -84,6 +86,34 @@ dmliv_results_linear_strong_pi_2.0490_n10000.csv
 - These contain both replication-level results and a prepended row with summary statistics. However, the code only delivers mean bias and MSE, not median bias or RMSE. The latter two should be computed by hand, e.g. in python or excel. 
 
 ---
+
+## Replication: Ahrens et al. (2025)
+
+This component replicates the simulation framework from **Table 2** of Ahrens et al. (2025), highlighting the impact of **cross-fitting** and **Neyman orthogonality** on finite-sample ATE estimation.
+
+### How to Run
+
+Run the following R scripts:
+
+```r
+source("panel_A.R")  # Empirical ATE estimation on SIPP data
+source("panel_B.R")  # Simulation study with 1150 replications
+
+- `panel_A.R` estimates ATE using six estimators (`IPW`, `RA`, `DR`; with/without cross-fitting) on real data from the 1991 **Survey of Income and Program Participation (SIPP)**.
+
+- `panel_B.R` runs a calibrated simulation study based on random forest estimates of the outcome and treatment models from the real data. It compares finite-sample performance across estimators.
+
+## Output
+
+Prints results analogous to **Table 9** in the thesis, including:
+
+- Mean / median bias
+- Standard deviation
+- Mean standard error
+- Coverage rate at 95%
+
+The simulated ATE is constructed from the fitted conditional means in the SIPP data and held fixed across simulations.
+
 
 ## Requirements
 
