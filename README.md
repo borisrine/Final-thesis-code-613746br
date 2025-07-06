@@ -130,7 +130,7 @@ source("panel_B.R")  # Simulation study with 1150 replications
 
 ## Output
 
-Prints results analogous to **Table 9** in the thesis, including:
+Prints results analogous to Table 9 in the thesis, including:
 
 - Mean / median bias
 - Standard deviation
