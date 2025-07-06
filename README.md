@@ -87,6 +87,31 @@ dmliv_results_linear_strong_pi_2.0490_n10000.csv
 
 ---
 
+## Requirements
+
+### Python:
+Install packages via pip:
+
+bash
+pip install numpy pandas scikit-learn statsmodels econml
+
+
+### R:
+Install required R packages:
+
+r
+install.packages(c("grf", "parallel"))
+
+
+---
+
+## Notes
+
+- All code assumes a structure consistent with the thesis (see Section 5 and Appendix D).
+- Modify the `out_dir` paths inside `runner.py` and `runner.R` to point to your local output folder.
+- Parallelization is implemented in both R (`mclapply`) and Python (`multiprocessing.Pool`).
+
+---
 ## Replication: Ahrens et al. (2025)
 
 This component replicates the simulation framework from **Table 2** of Ahrens et al. (2025), highlighting the impact of **cross-fitting** and **Neyman orthogonality** on finite-sample ATE estimation.
@@ -116,30 +141,15 @@ The simulated ATE is constructed from the fitted conditional means in the SIPP d
 
 
 ## Requirements
-
-### Python:
-Install packages via pip:
-
-```bash
-pip install numpy pandas scikit-learn statsmodels econml
-```
-
 ### R:
 Install required R packages:
 
 ```r
-install.packages(c("grf", "parallel"))
+install.packages(c("data.table", "haven", "ranger", "DoubleML", "mlr3", "mlr3learners", "parallel"))
 ```
 
 ---
 
-## Notes
-
-- All code assumes a structure consistent with the thesis (see Section 5 and Appendix D).
-- Modify the `out_dir` paths inside `runner.py` and `runner.R` to point to your local output folder.
-- Parallelization is implemented in both R (`mclapply`) and Python (`multiprocessing.Pool`).
-
----
 
 ## Contact
 
